@@ -23,6 +23,7 @@ import psp from "../assets/psp.png";
 import bapi from "../assets/bapi.png";
 import shanti from "../assets/shanti.png";
 import ValueCarousel from "./Benefits";
+import '../index.css';
 const SwastikGRCWebsite = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -33,22 +34,21 @@ const SwastikGRCWebsite = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* Header with contact info */}
-      <div className="bg-white p-4 pl-8 flex justify-between items-center border-b">
-        <div className="flex items-center space-x-4">
+      {/* Header */}
+      <div className="bg-white p-4 flex flex-col sm:flex-row justify-between items-center border-b">
+        <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4 sm:mb-0">
           <div>
             <p className="text-yellow-600 text-xs">CALL NOW</p>
-            <p className="font-semibold">+91 9794735353</p>
+            <p className="font-semibold text-sm sm:text-base">+91 9794735353</p>
           </div>
           <div>
             <p className="text-gray-500 text-xs font-semibold">Practicing</p>
-            <p className="font-semibold">
+            <p className="font-semibold text-sm sm:text-base">
               Since <span className="text-red-600">1999</span>
             </p>
           </div>
         </div>
-
-        <div className="bg-red-600 p-4 rotate-45 translate-x-6">
+        <div className="bg-red-600 p-3 sm:p-4 rotate-45 sm:translate-x-6">
           <div className="-rotate-45">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -69,97 +69,56 @@ const SwastikGRCWebsite = () => {
       </div>
 
       {/* Logo and Navigation */}
-      <div className="flex justify-between items-center px-8 py-4 bg-slate-200">
-        {/* <div className="flex flex-col">
-          <div className="flex items-center m-auto">
-            <img src={logo3} alt="Prebuilt GRC & FRP" className="h-32" />
+      <div className="flex flex-col lg:flex-row justify-between items-center px-4 sm:px-8 py-4 bg-slate-200">
+        <div className="flex flex-col my-6 sm:my-12 max-w-4xl mx-auto w-full">
+          <div className="flex items-center justify-center mb-4">
+            <img src={logo3} alt="Prebuilt GRC & FRP" className="h-24 sm:h-32 object-contain" />
           </div>
-          <div className="flex items-center m-auto">
-            <div>
-              <h1 className="text-5xl font-semibold text-gray-800">PREBUILT</h1>
-              <p className="text-red-600 text-sm font-bold">
-                GRC AND FRP Componants
-              </p>
-            </div>
-          </div>
-          <div className="ml-14 mt-4 text-3xl">
-            <p className="leading-relaxed">
-              <span className="font-semibold">Arches,</span> Brackets,{" "}
-              <span className="font-semibold">Bands & Panels,</span>
-              <br />
-              Balusters & Railings,{" "}
-              <span className="font-semibold">Columns &</span>
-              <br />
-              <span className="font-semibold">Capitals,</span> Decorative
-              Murals, <span className="font-semibold">Fins,</span>
-              <br />
-              Mouldings & Cornices,{" "}
-              <span className="font-semibold">Planters /</span>
-              <br />
-              <span className="font-semibold">Landscapes,</span> Screens
+          <div className="text-center mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 tracking-wide font-serif">PREBUILT</h1>
+            <p className="text-red-600 text-xs sm:text-sm font-bold tracking-wider uppercase mt-1">
+              Advanced CONCRETE LLP
             </p>
           </div>
-        </div> */}
-<div className="flex flex-col my-12 max-w-4xl mx-auto">
-  <div className="flex items-center justify-center mb-4">
-    <img src={logo3} alt="Prebuilt GRC & FRP" className="h-32 object-contain" />
-  </div>
-  
-  <div className="flex items-center justify-center mb-8">
-    <div className="text-center">
-      <h1 className="text-5xl font-bold text-gray-800 tracking-wide font-serif">PREBUILT</h1>
-      <p className="text-red-600 text-sm font-bold tracking-wider uppercase mt-1">
-        Advanced CONCRETE LLP
-      </p>
-    </div>
-  </div>
-  
-  <div className="text-center mt-6">
-    <p className="text-3xl text-gray-600 leading-relaxed">
-      <span className="font-semibold text-gray-800">Arches,</span> Brackets,{" "}
-      <span className="font-semibold text-gray-800">Bands & Panels,</span>
-      <br />
-      Balusters & Railings,{" "}
-      <span className="font-semibold text-gray-800">Columns &</span>
-      <br />
-      <span className="font-semibold text-gray-800">Capitals,</span> Decorative
-      Murals, <span className="font-semibold text-gray-800">Fins,</span>
-      <br />
-      Mouldings & Cornices,{" "}
-      <span className="font-semibold text-gray-800">Planters /</span>
-      <br />
-      <span className="font-semibold text-gray-800">Landscapes,</span> Screens
-    </p>
-  </div>
-</div>
+          <div className="text-center text-lg sm:text-2xl lg:text-3xl text-gray-600 leading-relaxed">
+            <p>
+              <span className="font-semibold text-gray-800">Arches,</span> Brackets,{" "}
+              <span className="font-semibold text-gray-800">Bands & Panels</span>
+              <span className="hidden sm:inline">, Balusters & Railings</span>
+              <span className="sm:hidden"><br/>Balusters & Railings</span>
+              {/* Responsive text breaking */}
+              <br className="hidden sm:block"/>
+              <span className="font-semibold text-gray-800">Columns & Capitals,</span>
+              Decorative Murals, <span className="font-semibold text-gray-800">Fins</span>
+              <br className="hidden sm:block"/>
+              Mouldings & Cornices,{" "}
+              <span className="font-semibold text-gray-800">Planters/Landscapes,</span> Screens
+            </p>
+          </div>
+        </div>
         {/* Hero Slider */}
-        <div className="relative w-2/3 h-106 overflow-hidden">
-          {/* Display current slide with transition */}
+        <div className="w-full lg:w-2/3 h-64 sm:h-80 lg:h-106 overflow-hidden relative">
           <div
-            className="h-full w-full transition-transform duration-500 ease-in-out"
+            className="h-full w-full transition-transform duration-500 ease-in-out flex"
             style={{ transform: `translateX(-${activeSlide * 100}%)` }}
           >
-            <div className="h-full w-full flex">
-              {sliderArray.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt="Building with dome"
-                  className="h-full w-full object-cover flex-shrink-0"
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation dots */}
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center">
             {sliderArray.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Slide ${index + 1}`}
+                className="h-full w-full object-cover flex-shrink-0"
+              />
+            ))}
+          </div>
+          <div className="absolute bottom-2 sm:bottom-4 left-0 right-0 flex justify-center space-x-2">
+            {sliderArray.map((_, index) => (
               <button
                 key={index}
-                className={`h-3 w-3 rounded-full mx-1 transition-colors duration-300 ${
+                className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition-colors duration-300 ${
                   index === activeSlide ? "bg-white" : "bg-gray-400"
                 }`}
-                onClick={() => handleDotClick(index)}
+                onClick={() => setActiveSlide(index)}
               />
             ))}
           </div>
@@ -168,22 +127,18 @@ const SwastikGRCWebsite = () => {
       <div className="m-8"></div>
       <div className="m-8"></div>
       {/* Welcome Section */}
-      <div className="flex flex-col md:flex-row justify-center items-center px-8 py-12 bg-slate-200 max-w-6xl mx-auto">
-        <div className="w-1/5 md:w-1/5 lg:w-2/6 mb-6 md:mb-0 md:mr-8">
+      <div className="flex flex-col md:flex-row justify-center items-center px-4 sm:px-8 py-12 bg-slate-200 max-w-6xl mx-auto">
+        <div className="w-full md:w-1/3 lg:w-2/6 mb-6 md:mb-0 md:mr-8">
           <img
             src={welcome}
-            alt="Building facade with decorative patterns"
+            alt="Building facade"
             className="w-full h-auto object-cover rounded-lg shadow-md"
           />
         </div>
-        <div className="w-full md:w-2/5 lg:w-3/5">
-          <h2 className="text-red-600 font-semibold tracking-wide">
-            WELCOME TO
-          </h2>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            PREBUILT Advance Concrete LLP
-          </h1>
-          <p className="text-gray-600 leading-relaxed">
+        <div className="w-full md:w-2/3 lg:w-3/5">
+          <h2 className="text-red-600 font-semibold tracking-wide text-sm sm:text-base">WELCOME TO</h2>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">PREBUILT Advance Concrete LLP</h1>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
             We are the one of the top market leader in the manufacturing of
             Glass Reinforced Concrete (GRC) product in Gurgaon, Delhi, Noida and
             NCR. We have vast expertise in this GRC Work. We are manufacturing
@@ -213,79 +168,39 @@ const SwastikGRCWebsite = () => {
       <div className="m-8"></div>
       <div className="m-8"></div>
       {/* Projects Section */}
-      <div className="bg-gray-300 flex">
-        <div className="w-1/5 p-8 bg-slate-400">
-          <h2 className="text-4xl font-bold text-white"> OUR <br/>
-            PROJECTS</h2>
+      <div className="bg-gray-300 flex flex-col md:flex-row">
+        <div className="w-full md:w-1/5 p-4 md:p-8 bg-slate-400">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">OUR PROJECTS</h2>
         </div>
-
-        <div className="w-4/5 p-8 overflow-x-auto">
+        <div className="w-full md:w-4/5 p-4 md:p-8 overflow-x-auto">
           <div className="flex space-x-4">
-            <div className="min-w-max">
-              <img
-                src={proj1}
-                alt="Ambuja Reality"
-                className="w-64 h-48 object-cover"
-              />
-              <p className="mt-2 font-semibold text-center">AMBUJA REALITY</p>
-            </div>
-
-            <div className="min-w-max">
-              <img
-                src={proj2}
-                alt="Mall Siliguri"
-                className="w-64 h-48 object-cover"
-              />
-              <p className="mt-2 font-semibold text-center">MALL - SILIGURI</p>
-            </div>
-
-            <div className="min-w-max">
-              <img
-                src={proj3}
-                alt="B Safal"
-                className="w-64 h-48 object-cover"
-              />
-              <p className="mt-2 font-semibold text-center">B SAFAL</p>
-            </div>
-
-            <div className="min-w-max">
-              <img
-                src={proj4}
-                alt="Police Commissioner Office"
-                className="w-64 h-48 object-cover"
-              />
-              <p className="mt-2 font-semibold text-center">
-                POLICE COMMISSIONER OFFICE
-              </p>
-            </div>
-
-            <div className="min-w-max">
-              <img
-                src={proj4}
-                alt="Pandit Deendayal University"
-                className="w-64 h-48 object-cover"
-              />
-              <p className="mt-2 font-semibold text-center">
-                PANDIT DEENDAYAL UNIVERSITY
-              </p>
-            </div>
+            {[
+              { img: proj1, title: "AMBUJA REALITY" },
+              { img: proj2, title: "MALL - SILIGURI" },
+              { img: proj3, title: "B SAFAL" },
+              { img: proj4, title: "POLICE COMMISSIONER OFFICE" },
+              { img: proj4, title: "PANDIT DEENDAYAL UNIVERSITY" },
+            ].map((project, index) => (
+              <div key={index} className="min-w-[200px] sm:min-w-[250px]">
+                <img src={project.img} alt={project.title} className="w-full h-40 sm:h-48 object-cover" />
+                <p className="mt-2 font-semibold text-center text-sm sm:text-base">{project.title}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
       <div className="m-8"></div>
       <div className="m-8"></div>
       {/* Divisions Section */}
-      <div className="py-16 px-8 bg-white relative">
-        <div className="text-gray-100 text-9xl font-bold absolute top-0 left-0 w-full text-center opacity-10">
+      {/* Divisions Section */}
+      <div className="py-12 sm:py-16 px-4 sm:px-8 bg-white relative">
+        <div className="text-gray-100 text-6xl sm:text-9xl font-bold absolute top-0 left-0 w-full text-center opacity-10">
           DIVISIONS
         </div>
-        <div className="relative z-10">
-          <h2 className="text-4xl font-bold text-gray-700 text-center mb-10">
-            DIVISIONS
-          </h2>
-
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <p className="text-gray-700 uppercase text-sm leading-relaxed">
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-700 text-center mb-8 sm:mb-10">DIVISIONS</h2>
+          <div className="text-center mb-10 sm:mb-12">
+            <p className="text-gray-700 uppercase text-xs sm:text-sm leading-relaxed px-2">
               GLASS FIBER REINFORCED CONCRETE ALSO KNOWN AS GRC IS A CEMENT-
               BASED COMPOSITE MATERIAL REINFORCED WITH ALKALI RESISTANT FIBRES.
               GRC CAN BE FORMED INTO THIN SECTIONED LIGHTWEIGHT ELEMENTS AND
@@ -293,111 +208,59 @@ const SwastikGRCWebsite = () => {
             </p>
           </div>
 
-          <div className="flex justify-center gap-20">
-            <div className="shadow-lg">
-              <img
-                src={cornice}
-                alt="GRC/GFRC building"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-gray-700">GRC Cornice</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-10">
+            {[
+              { img: cornice, title: "GRC Cornice" },
+              { img: baluster, title: "GRC Balusters" },
+              { img: pillars, title: "GRC Pillars" },
+              { img: arches, title: "GRC Arches" },
+              { img: domes, title: "GRC Domes" },
+            ].map((division, index) => (
+              <div key={index} className="shadow-lg">
+                <img src={division.img} alt={division.title} className="w-full h-40 sm:h-48 object-cover" />
+                <div className="p-4 text-center">
+                  <h3 className="text-gray-700 text-sm sm:text-base">{division.title}</h3>
+                </div>
               </div>
-            </div>
-
-            <div className="shadow-lg">
-              <img
-                src={baluster}
-                alt="FRP/GRP building"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-gray-700">GRC Balusters</h3>
-              </div>
-            </div>
-
-            <div className="shadow-lg">
-              <img
-                src={pillars}
-                alt="PREFAB structure"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-gray-700">GRC Pillars</h3>
-              </div>
-            </div>
-            <div className="shadow-lg">
-              <img
-                src={arches}
-                alt="PREFAB structure"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-gray-700">GRC Arches</h3>
-              </div>
-            </div>
-            <div className="shadow-lg">
-              <img
-                src={domes}
-                alt="PREFAB structure"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-gray-700">GRC Domes</h3>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-
-        {/* <div className="absolute right-0 top-0 h-full w-1/3">
-          <img src={slide3} alt="Decorative building element" className="h-full object-cover" />
-        </div> */}
       </div>
 
       {/* Clientele Section */}
-      <div className="py-16 px-8 bg-slate-300 relative">
-        <div className="text-gray-100 text-9xl font-bold absolute top-0 left-0 w-full text-center opacity-10">
+      <div className="py-12 sm:py-16 px-4 sm:px-8 bg-slate-300 relative">
+        <div className="text-gray-100 text-6xl sm:text-9xl font-bold absolute top-0 left-0 w-full text-center opacity-10">
           CLIENTELE
         </div>
-        <div className="relative z-10">
-          <h2 className="text-4xl font-bold text-gray-700 text-center mb-16">
-            CLIENTELE
-          </h2>
-
-          <div className="flex justify-center items-center gap-8 mb-16">
-            <img src={savvy} alt="Savvy" className="h-16" />
-            <img
-              src={zaveri}
-              alt="Zaveri Realty"
-              className="h-16"
-            />
-            <img src={lnt} alt="L&T" className="h-16" />
-            <img src={psp} alt="PSP" className="h-16" />
-            <img src={bapi} alt="Bapi" className="h-16" />
-            <img src={shanti} alt="Shanti" className="h-16" />
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-700 text-center mb-12 sm:mb-16">CLIENTELE</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-8">
+            {[savvy, zaveri, lnt, psp, bapi, shanti].map((logo, index) => (
+              <img key={index} src={logo} alt={`Client ${index + 1}`} className="h-12 sm:h-16 w-auto mx-auto" />
+            ))}
           </div>
         </div>
       </div>
 
       {/* Products Section */}
-      <div className="bg-gray-800 py-10 text-center">
-        <h2 className="text-xl text-gray-300">
+      <div className="bg-gray-800 py-8 sm:py-10 text-center">
+        <h2 className="text-lg sm:text-xl text-gray-300 px-4">
           OFFERING A QUALITY RANGE OF{" "}
           <span className="text-amber-300">CONCRETE & GRC</span> PRODUCTS
         </h2>
-        <button className="mt-6 border border-gray-400 text-white px-6 py-2 hover:bg-gray-700 transition">
-          <a href = ""> CONTACT US </a>
+        <button className="mt-4 sm:mt-6 border border-gray-400 text-white px-4 sm:px-6 py-2 hover:bg-gray-700 transition text-sm sm:text-base">
+          <a href="">CONTACT US</a>
         </button>
       </div>
 
       {/* Footer */}
-      <div className="bg-gray-100 py-10 px-8">
-        <div className="flex justify-between">
-          <div className="w-1/4">
+    <div className="bg-gray-100 py-8 sm:py-10 px-4 sm:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="w-full">
             <div className="flex items-center mb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-red-600 mr-2"
+                className="h-5 w-8 text-red-600 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -418,20 +281,19 @@ const SwastikGRCWebsite = () => {
               <p className="font-semibold">REG. OFFICE & H.O.</p>
             </div>
             <p className="text-sm text-gray-600 ml-7">
-            Rahmat Nagar,
+              Rahmat Nagar,
               <br />
               Sultanpur Road, Land Mark : In Front Of Sainik Dhabha,
               <br />
-              Gosaiganj Lucknow,
-              Uttar Pradesh, India
+              Gosaiganj Lucknow, Uttar Pradesh, India
             </p>
           </div>
 
-          <div className="w-1/4">
+          <div className="w-full">
             <div className="flex items-center mb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-red-600 mr-2"
+                className="h-6 w-12 text-red-600"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -450,11 +312,11 @@ const SwastikGRCWebsite = () => {
             </p>
           </div>
 
-          <div className="w-1/4">
+          <div className="w-full">
             <div className="flex items-center mb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-red-600 mr-2"
+                className="h-5 w-8 text-red-600 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -473,11 +335,11 @@ const SwastikGRCWebsite = () => {
             </p>
           </div>
 
-          <div className="w-1/4">
+          <div className="w-1/3">
             <div className="flex items-center mb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-red-600 mr-2"
+                className="h-5 w-8 text-red-600 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
