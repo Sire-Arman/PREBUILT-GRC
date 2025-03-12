@@ -23,7 +23,7 @@ import psp from "../assets/psp.png";
 import bapi from "../assets/bapi.png";
 import shanti from "../assets/shanti.png";
 import ValueCarousel from "./Benefits";
-import '../index.css';
+// import '../index.css';
 const SwastikGRCWebsite = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -69,60 +69,103 @@ const SwastikGRCWebsite = () => {
       </div>
 
       {/* Logo and Navigation */}
-      <div className="flex flex-col lg:flex-row justify-between items-center px-4 sm:px-8 py-4 bg-slate-200">
-        <div className="flex flex-col my-6 sm:my-12 max-w-4xl mx-auto w-full">
+      <div className="flex flex-col lg:flex-row justify-between items-center px-4 sm:px-8 py-4 lg:py-12 bg-slate-200">
+        <div className="flex flex-col my-6 sm:my-12 max-w-4xl mx-auto w-1/3">
           <div className="flex items-center justify-center mb-4">
-            <img src={logo3} alt="Prebuilt GRC & FRP" className="h-24 sm:h-32 object-contain" />
+            <img
+              src={logo3}
+              alt="Prebuilt GRC & FRP"
+              className="h-24 sm:h-32 object-contain"
+            />
           </div>
           <div className="text-center mb-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 tracking-wide font-serif">PREBUILT</h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 tracking-wide font-serif">
+              PREBUILT
+            </h1>
             <p className="text-red-600 text-xs sm:text-sm font-bold tracking-wider uppercase mt-1">
               Advanced CONCRETE LLP
             </p>
           </div>
           <div className="text-center text-lg sm:text-2xl lg:text-3xl text-gray-600 leading-relaxed">
             <p>
-              <span className="font-semibold text-gray-800">Arches,</span> Brackets,{" "}
-              <span className="font-semibold text-gray-800">Bands & Panels</span>
-              <span className="hidden sm:inline">, Balusters & Railings</span>
-              <span className="sm:hidden"><br/>Balusters & Railings</span>
+              GRC 
+              <span className="font-semibold text-gray-800"> Jali,</span>{" "}
+              Planters,{" "}
+              <span className="font-semibold text-gray-800">
+                Column & Sculptures
+              </span>
+              <span className="hidden sm:inline">, GRC Screen Designs & Fountains</span>
+              <span className="sm:hidden">
+                <br />
+                Capitals & Railings
+              </span>
               {/* Responsive text breaking */}
-              <br className="hidden sm:block"/>
-              <span className="font-semibold text-gray-800">Columns & Capitals,</span>
-              Decorative Murals, <span className="font-semibold text-gray-800">Fins</span>
-              <br className="hidden sm:block"/>
+              <br className="hidden sm:block" />
+              <span className="font-semibold text-gray-800">
+                GRC Claddings,
+              </span>
+              Decorative Murals,{" "}
+              <span className="font-semibold text-gray-800">Fins</span>
+              <br className="hidden sm:block" />
               Mouldings & Cornices,{" "}
-              <span className="font-semibold text-gray-800">Planters/Landscapes,</span> Screens
+              <span className="font-semibold text-gray-800">
+                Planters/Landscapes,
+              </span>{" "}
+              Screens
             </p>
           </div>
         </div>
         {/* Hero Slider */}
-        <div className="w-full lg:w-2/3 h-64 sm:h-80 lg:h-106 overflow-hidden relative">
-          <div
-            className="h-full w-full transition-transform duration-500 ease-in-out flex"
-            style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-          >
-            {sliderArray.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`Slide ${index + 1}`}
-                className="h-full w-full object-cover flex-shrink-0"
-              />
-            ))}
-          </div>
-          <div className="absolute bottom-2 sm:bottom-4 left-0 right-0 flex justify-center space-x-2">
-            {sliderArray.map((_, index) => (
-              <button
-                key={index}
-                className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition-colors duration-300 ${
-                  index === activeSlide ? "bg-white" : "bg-gray-400"
-                }`}
-                onClick={() => setActiveSlide(index)}
-              />
-            ))}
-          </div>
+        <div className="w-full lg:w-2/3 h-[60vh] sm:h-[60vh] lg:h-[70vh] overflow-hidden relative">
+  {sliderArray.map((img, index) => (
+    <div
+      key={index}
+      className={`absolute inset-0 transition-opacity duration-1000 ease-in-out transform ${
+        index === activeSlide ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      }`}
+    >
+      <img
+        src={img}
+        alt={`Slide ${index + 1}`}
+        className="w-full h-full object-contain"
+      />
+      <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center">
+        <div className="text-center text-white px-4">
+          <h1 className="text-xl md:text-3xl font-bold mb-2">
+            {index === 0
+              ? "Premium GRC Solutions"
+              : index === 1
+              ? "Elegant Architectural Elements"
+              : "Custom Designs & Solutions"}
+          </h1>
+          <p className="text-sm md:text-lg mb-4">
+            {index === 0
+              ? "Transform your spaces with our high-quality architectural products"
+              : index === 1
+              ? "Adding beauty and durability to your architectural projects"
+              : "Tailored to your specific requirements and aesthetic preferences"}
+          </p>
+          <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 md:px-6 md:py-2 rounded-md text-sm font-medium">
+            Explore Products
+          </button>
         </div>
+      </div>
+    </div>
+  ))}
+  <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+    {sliderArray.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setActiveSlide(index)}
+        className={`w-3 h-3 rounded-full ${
+          index === activeSlide ? "bg-white" : "bg-gray-400"
+        }`}
+        aria-label={`Go to slide ${index + 1}`}
+      />
+    ))}
+  </div>
+</div>
+
       </div>
       <div className="m-8"></div>
       <div className="m-8"></div>
@@ -136,8 +179,12 @@ const SwastikGRCWebsite = () => {
           />
         </div>
         <div className="w-full md:w-2/3 lg:w-3/5">
-          <h2 className="text-red-600 font-semibold tracking-wide text-sm sm:text-base">WELCOME TO</h2>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">PREBUILT Advance Concrete LLP</h1>
+          <h2 className="text-red-600 font-semibold tracking-wide text-sm sm:text-base">
+            WELCOME TO
+          </h2>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            PREBUILT Advance Concrete LLP
+          </h1>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
             We are the one of the top market leader in the manufacturing of
             Glass Reinforced Concrete (GRC) product in Gurgaon, Delhi, Noida and
@@ -169,9 +216,13 @@ const SwastikGRCWebsite = () => {
       <div className="m-8"></div>
       {/* Projects Section */}
       <div className="bg-gray-300 flex flex-col md:flex-row">
-        <div className="w-full md:w-1/5 p-4 md:p-8 bg-slate-400">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">OUR PROJECTS</h2>
-        </div>
+      <div className="w-full md:w-1/5 md:p-8 bg-slate-400 flex items-center">
+  <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-wide uppercase text-center">
+    <span className="block">OUR</span>
+    <span className="block">PROJECTS</span>
+  </h2>
+</div>
+
         <div className="w-full md:w-4/5 p-4 md:p-8 overflow-x-auto">
           <div className="flex space-x-4">
             {[
@@ -182,8 +233,14 @@ const SwastikGRCWebsite = () => {
               { img: proj4, title: "PANDIT DEENDAYAL UNIVERSITY" },
             ].map((project, index) => (
               <div key={index} className="min-w-[200px] sm:min-w-[250px]">
-                <img src={project.img} alt={project.title} className="w-full h-40 sm:h-48 object-cover" />
-                <p className="mt-2 font-semibold text-center text-sm sm:text-base">{project.title}</p>
+                <img
+                  src={project.img}
+                  alt={project.title}
+                  className="w-full h-40 sm:h-48 object-cover"
+                />
+                <p className="mt-2 font-semibold text-center text-sm sm:text-base">
+                  {project.title}
+                </p>
               </div>
             ))}
           </div>
@@ -198,7 +255,9 @@ const SwastikGRCWebsite = () => {
           DIVISIONS
         </div>
         <div className="relative z-10 max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-700 text-center mb-8 sm:mb-10">DIVISIONS</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-700 text-center mb-8 sm:mb-10">
+            DIVISIONS
+          </h2>
           <div className="text-center mb-10 sm:mb-12">
             <p className="text-gray-700 uppercase text-xs sm:text-sm leading-relaxed px-2">
               GLASS FIBER REINFORCED CONCRETE ALSO KNOWN AS GRC IS A CEMENT-
@@ -217,9 +276,15 @@ const SwastikGRCWebsite = () => {
               { img: domes, title: "GRC Domes" },
             ].map((division, index) => (
               <div key={index} className="shadow-lg">
-                <img src={division.img} alt={division.title} className="w-full h-40 sm:h-48 object-cover" />
+                <img
+                  src={division.img}
+                  alt={division.title}
+                  className="w-full h-40 sm:h-48 object-cover"
+                />
                 <div className="p-4 text-center">
-                  <h3 className="text-gray-700 text-sm sm:text-base">{division.title}</h3>
+                  <h3 className="text-gray-700 text-sm sm:text-base">
+                    {division.title}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -233,10 +298,17 @@ const SwastikGRCWebsite = () => {
           CLIENTELE
         </div>
         <div className="relative z-10 max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-700 text-center mb-12 sm:mb-16">CLIENTELE</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-700 text-center mb-12 sm:mb-16">
+            CLIENTELE
+          </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-8">
             {[savvy, zaveri, lnt, psp, bapi, shanti].map((logo, index) => (
-              <img key={index} src={logo} alt={`Client ${index + 1}`} className="h-12 sm:h-16 w-auto mx-auto" />
+              <img
+                key={index}
+                src={logo}
+                alt={`Client ${index + 1}`}
+                className="h-12 sm:h-16 w-auto mx-auto"
+              />
             ))}
           </div>
         </div>
@@ -254,7 +326,7 @@ const SwastikGRCWebsite = () => {
       </div>
 
       {/* Footer */}
-    <div className="bg-gray-100 py-8 sm:py-10 px-4 sm:px-8">
+      <div className="bg-gray-100 py-8 sm:py-10 px-4 sm:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           <div className="w-full">
             <div className="flex items-center mb-2">
